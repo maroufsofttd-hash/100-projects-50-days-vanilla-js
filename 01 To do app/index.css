@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Page ── */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #07193a;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* ── Card ── */
+.todo-app {
+  width: 100%;
+  max-width: 600px;
+  background: #0d2244;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.todo-app-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-app-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+
+.task-count {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Input row ── */
+.input-btn {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.input-btn input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-btn input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.input-btn input:focus {
+  border-color: #5b8dee;
+}
+
+.input-btn select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 13px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.input-btn select:focus {
+  border-color: #5b8dee;
+}
+
+select option {
+  background: #0d2244;
+  color: #fff;
+}
+
+/* ── Add button ── */
+.btn {
+  background: #5b8dee;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  background: #4a7de0;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Filter buttons ── */
+.compte {
+  display: flex;
+  gap: 6px;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-wrap: wrap;
+}
+
+.compte button {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.compte button:hover {
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.compte button.active {
+  background: #5b8dee;
+  color: #fff;
+  border-color: #5b8dee;
+}
+
+/* ── Todo list ── */
+ul {
+  list-style: none;
+  padding: 8px 16px;
+}
+
+/* ── Todo item ── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  transition: background 0.15s;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.todo-item + .todo-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.todo-item.done {
+  opacity: 0.55;
+}
+
+.todo-item.done .todo-item-text {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Custom checkbox ── */
+.checkbox-container {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  transition: all 0.15s;
+}
+
+.checkbox-container input:checked + .checkmark {
+  background: #5b8dee;
+  border-color: #5b8dee;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: 1.5px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── Task text ── */
+.todo-item-text {
+  flex: 1;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* ── Priority badge ── */
+.priority-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.priority-ur {
+  background: rgba(226, 75, 74, 0.18);
+  color: #f08080;
+  border: 1px solid rgba(226, 75, 74, 0.28);
+}
+
+.priority-mo {
+  background: rgba(186, 117, 23, 0.18);
+  color: #f0b060;
+  border: 1px solid rgba(186, 117, 23, 0.28);
+}
+
+.priority-bs {
+  background: rgba(29, 158, 117, 0.18);
+  color: #5dc8a0;
+  border: 1px solid rgba(29, 158, 117, 0.28);
+}
+
+/* ── Delete button ── */
+.delete-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.delete-btn:hover {
+  color: #f08080;
+  background: rgba(226, 75, 74, 0.14);
+}
+
+/* ── Empty state ── */
+.para {
+  padding: 36px 0;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+}
+
+#items-left {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#clear-completed {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+#clear-completed:hover {
+  color: #f08080;
+}

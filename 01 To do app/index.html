@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do app</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app1">
+        <div class="todo-app-header">
+          <h2>Mes tâches</h2>
+          <span class="task-count" id="task-count">0 tâche</span>
+        </div>
+
+        <div class="input-btn">
+          <input type="text" id="input" placeholder="Nouvelle tâche…" />
+          <select id="priority" name="priorite">
+            <option value="ur">Urgente</option>
+            <option value="mo">Moyenne</option>
+            <option value="bs" selected>Basse</option>
+          </select>
+          <button id="btn" class="btn">+ Ajouter</button>
+        </div>
+
+        <div class="compte">
+          <button id="tous" class="active">Toutes (0)</button>
+          <button id="urgente">Urgentes (0)</button>
+          <button id="moyenne">Moyennes (0)</button>
+          <button id="basse">Basses (0)</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+
+        <div class="para hidden">
+          <p>Aucune tâche pour le moment</p>
+        </div>
+
+        <div class="footer">
+          <p id="items-left">0 restante</p>
+          <button id="clear-completed">Effacer terminées</button>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

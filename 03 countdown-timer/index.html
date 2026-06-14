@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>compte a rebours</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>⏰ Countdown Timer ⏰</h1>
+        <p>Set a date and watch the countdown</p>
+      </header>
+      <div class="input-section">
+        <label for="targetDate">Select Target Date 👇</label>
+        <input type="date" id="input" class="input" />
+        <button class="btn" id="btn">start countdown</button>
+      </div>
+      <div class="timers">
+        <div class="box">
+          <p>Jours</p>
+          <h2 id="jours">00</h2>
+        </div>
+        <div class="box">
+          <p>heures</p>
+          <h2 id="heures">00</h2>
+        </div>
+        <div class="box">
+          <p>Minutes</p>
+          <h2 id="minutes">00</h2>
+        </div>
+        <div class="box">
+          <p>Secondes</p>
+          <h2 id="secondes">00</h2>
+        </div>
+        <div class="message" id="message"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
