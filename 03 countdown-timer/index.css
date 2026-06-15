@@ -36,3 +36,329 @@ body {
   box-shadow: 0 20px 60px rgba(10, 15, 26, 0.9);
   border: 1px solid var(--bg-border);
 }
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500&display=swap");
+
+:root {
+  --cyan: #00e5ff;
+  --cyan-dim: rgba(0, 229, 255, 0.08);
+  --cyan-glow: rgba(0, 229, 255, 0.35);
+  --bg: #050810;
+  --bg-card: #080d18;
+  --bg-box: #0b1220;
+  --border: rgba(0, 229, 255, 0.2);
+  --text: #ccd6f6;
+  --muted: rgba(204, 214, 246, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* ── Grille de fond ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Lueur centrale ── */
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 229, 255, 0.05) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Carte principale ── */
+.container {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 48px 40px;
+  max-width: 680px;
+  width: 100%;
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 255, 0.05),
+    0 0 40px rgba(0, 229, 255, 0.06),
+    0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* Coins futuristes */
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--cyan);
+  border-style: solid;
+}
+
+.container::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.container::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+header h1 {
+  font-family: "Orbitron", monospace;
+  font-size: clamp(18px, 3.5vw, 26px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-shadow:
+    0 0 20px var(--cyan-glow),
+    0 0 40px rgba(0, 229, 255, 0.15);
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── Séparateur ── */
+header::after {
+  content: "";
+  display: block;
+  margin: 20px auto 0;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+/* ── Section input ── */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.input-section label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.input-section .input {
+  background: var(--bg-box);
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  font-family: "Orbitron", monospace;
+  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 2px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  color-scheme: dark;
+}
+
+.input-section .input:focus {
+  border-color: var(--cyan);
+  box-shadow:
+    0 0 0 2px rgba(0, 229, 255, 0.12),
+    inset 0 0 20px rgba(0, 229, 255, 0.04);
+}
+
+/* ── Bouton ── */
+.btn {
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: "Orbitron", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+.btn:hover {
+  color: var(--bg);
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+.btn span,
+.btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Grille des timers ── */
+.timers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* ── Box chiffre ── */
+.box {
+  background: var(--bg-box);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 24px 12px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.box:hover {
+  border-color: rgba(0, 229, 255, 0.45);
+}
+
+/* Scan-line animé — signature futuriste */
+.box::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: scan 3s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes scan {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Décalage pour que les boxes ne soient pas synchronisées */
+.box:nth-child(1)::before {
+  animation-delay: 0s;
+}
+.box:nth-child(2)::before {
+  animation-delay: 0.75s;
+}
+.box:nth-child(3)::before {
+  animation-delay: 1.5s;
+}
+.box:nth-child(4)::before {
+  animation-delay: 2.25s;
+}
+
+.box p {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.box h2 {
+  font-family: "Orbitron", monospace;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  color: var(--cyan);
+  text-shadow: 0 0 16px var(--cyan-glow);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+/* ── Message (date passée) ── */
+.message {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ff4d6d;
+  padding: 8px 0;
+  font-family: "Orbitron", monospace;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 20px;
+  }
+  .timers {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  header h1 {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}
