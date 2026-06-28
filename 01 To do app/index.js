@@ -37,6 +37,7 @@ function addTask() {
   });
   input.value = "";
   input.focus();
+  render();
 }
 
 /* ── Filters ── */

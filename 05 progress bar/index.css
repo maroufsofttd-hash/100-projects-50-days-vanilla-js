@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2196f3;
+}
+p {
+  font-size: 16px;
+  margin: 10px 0px;
+  text-align: right;
+}
+section {
+  width: 50%;
+  background-color: white;
+  padding: 30px;
+  border-radius: 6px;
+}
+.container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.skillz {
+  text-align: right;
+  padding: 10px 0;
+  padding-right: 20px;
+  color: #fff;
+}
+.html {
+  width: 90%;
+  background-color: #04aa6d;
+  border-radius: 6px;
+  animation: animation1 3s ease-in-out forwards;
+}
+@keyframes animation1 {
+  0% {
+    width: 0;
+    margin-left: -50px;
+  }
+  100% {
+    width: 90%;
+  }
+}
+.css {
+  width: 80%;
+  background-color: #0905da;
+  animation: animation2 3s ease-in-out forwards;
+  border-radius: 6px;
+}
+
+@keyframes animation2 {
+  0% {
+    width: 0;
+    margin-left: -50px;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+.javascript {
+  width: 75%;
+  background-color: #e7eb0b;
+  animation: animation3 3s ease-in-out forwards;
+  border-radius: 6px;
+}
+
+@keyframes animation3 {
+  0% {
+    width: 0;
+    margin-left: -50px;
+  }
+  100% {
+    width: 75%;
+  }
+}
