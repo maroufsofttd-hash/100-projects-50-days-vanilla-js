@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>compte a rebours</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-section">
+        <span id="span">100000</span><br />
+        <input
+          type="number"
+          id="input"
+          class="input"
+          placeholder="Entrer votre solde.."
+        />
+        <button class="btn" id="btn">Envoyer</button>
+      </div>
+      <div class="timers" id="timers">
+        <div class="box">
+          <p>Minutes</p>
+          <h2 id="minutes">00</h2>
+        </div>
+        <div class="box">
+          <p>Secondes</p>
+          <h2 id="secondes">00</h2>
+        </div>
+        <button class="stopper" id="stopper">Stoper</button>
+        <div class="message" id="message"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

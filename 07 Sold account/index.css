@@ -1,0 +1,130 @@
+/* 1. Reset + Police moderne */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center; /* Centre ton .container */
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 100%
+  ); /* Dégradé violet/bleu */
+  color: #fff;
+}
+
+/* 2. La Card Glassmorphism */
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.1); /* Fond transparent */
+  backdrop-filter: blur(20px); /* Effet flou derrière = Glass */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Espace entre les sections */
+}
+
+/* 3. Section Solde */
+#span {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 4. Boutons Modernes */
+.btn,
+.stopper {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn {
+  /* Bouton Envoyer - Violet */
+  background: #8b5cf6;
+  color: #fff;
+}
+.btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px); /* Effet lift */
+}
+
+.stopper {
+  /* Bouton Stop - Rouge */
+  background: rgba(239, 68, 68, 0.9);
+  color: #fff;
+  margin-top: 8px;
+}
+.stopper:hover {
+  background: #dc2626;
+}
+
+/* 5. Section Timer */
+.timers {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.box {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.box p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.box h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.message {
+  font-weight: 600;
+  min-height: 24px; /* Évite que ça bouge quand le message arrive */
+}
